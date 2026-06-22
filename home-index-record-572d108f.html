@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>日常游戏指南 · 爱游戏</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      background: #f7f5f0;
+      font-family: 'Georgia', 'Noto Serif SC', 'Times New Roman', serif;
+      color: #3c3b37;
+      line-height: 1.7;
+      padding: 0 1.5rem 3rem;
+    }
+    .page {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    /* 顶部导航 */
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 0 0.8rem;
+      border-bottom: 1px solid #d6d2c8;
+      flex-wrap: wrap;
+    }
+    .logo {
+      font-size: 1.4rem;
+      font-weight: 600;
+      color: #5b4f3b;
+      letter-spacing: 0.5px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.8rem;
+      font-size: 0.95rem;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: #5b4f3b;
+      transition: color 0.15s;
+      border-bottom: 1px solid transparent;
+    }
+    .nav-links a:hover {
+      color: #a18262;
+      border-bottom-color: #b8aa94;
+    }
+
+    /* hero 区 */
+    .hero {
+      margin: 2.8rem 0 2.2rem;
+      padding: 2.2rem 1.8rem;
+      background: #ede9df;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+    }
+    .hero h1 {
+      font-weight: 400;
+      font-size: 2.2rem;
+      color: #3e352a;
+      margin-bottom: 0.8rem;
+      line-height: 1.2;
+    }
+    .hero h1 i {
+      font-style: normal;
+      background: #dcd5c6;
+      padding: 0 0.3rem;
+    }
+    .hero p {
+      font-size: 1.05rem;
+      color: #4f483c;
+      max-width: 640px;
+    }
+
+    /* 引用块 / 提示框 */
+    .insight {
+      background: #e6e0d4;
+      padding: 1.2rem 1.8rem;
+      border-left: 6px solid #b8aa94;
+      border-radius: 6px 18px 18px 6px;
+      margin: 2rem 0 2.2rem;
+      font-style: normal;
+      color: #403b32;
+      font-size: 0.98rem;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.02);
+    }
+    .insight strong {
+      color: #5f4e36;
+    }
+
+    /* 场景卡片区 */
+    .scenes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.8rem;
+      margin: 2rem 0 2.6rem;
+    }
+    .scene-card {
+      flex: 1 1 200px;
+      background: #ffffffef;
+      padding: 1.6rem 1.4rem;
+      border-radius: 24px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+      border: 1px solid #e3ddd1;
+      transition: all 0.15s;
+    }
+    .scene-card:hover {
+      background: #fcfaf6;
+      border-color: #cfc4b2;
+      transform: translateY(-2px);
+    }
+    .scene-card h3 {
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: #4a3f31;
+      border-left: 4px solid #c2b39b;
+      padding-left: 0.7rem;
+      margin-bottom: 0.9rem;
+    }
+    .scene-card p {
+      font-size: 0.94rem;
+      color: #4f483b;
+      margin-bottom: 0.6rem;
+    }
+    .scene-card .tag {
+      display: inline-block;
+      background: #e2dacb;
+      color: #3b352c;
+      font-size: 0.75rem;
+      padding: 0.1rem 0.7rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-top: 0.3rem;
+    }
+
+    /* 常见说明 (FAQ 摘要) */
+    .faq-section {
+      margin: 2.2rem 0 2rem;
+      border-top: 1px solid #dbd5c8;
+      padding-top: 1.8rem;
+    }
+    .faq-section h2 {
+      font-weight: 400;
+      font-size: 1.5rem;
+      color: #3e352a;
+      margin-bottom: 1.6rem;
+      letter-spacing: 0.3px;
+    }
+    .faq-item {
+      margin-bottom: 1.4rem;
+      padding-left: 0.2rem;
+    }
+    .faq-question {
+      font-weight: 600;
+      color: #4c4237;
+      display: block;
+      margin-bottom: 0.2rem;
+      font-size: 1rem;
+    }
+    .faq-answer {
+      color: #4f483c;
+      font-size: 0.95rem;
+      padding-left: 0.8rem;
+      border-left: 2px solid #d2cabb;
+    }
+
+    /* 内嵌链接 */
+    a {
+      color: #7d6b52;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: #cbbca6;
+      transition: color 0.15s;
+    }
+    a:hover {
+      color: #4f3b28;
+      text-decoration-color: #7d6b52;
+    }
+
+    /* 页脚 */
+    .footer-note {
+      margin-top: 3rem;
+      border-top: 1px solid #d6d2c8;
+      padding-top: 1.6rem;
+      font-size: 0.85rem;
+      color: #6b6254;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    /* 响应式 */
+    @media (max-width: 540px) {
+      body { padding: 0 0.8rem 2rem; }
+      nav { flex-direction: column; align-items: flex-start; gap: 0.4rem; }
+      .nav-links { gap: 1.2rem; flex-wrap: wrap; }
+      .hero h1 { font-size: 1.6rem; }
+      .hero { padding: 1.6rem 1rem; }
+      .scenes { gap: 1rem; }
+      .scene-card { flex: 1 1 100%; }
+      .faq-section h2 { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <nav>
+      <span class="logo">📋 日常游戏笔记</span>
+      <div class="nav-links">
+        <a href="#">指南</a>
+        <a href="#">场景</a>
+        <a href="#">说明</a>
+      </div>
+    </nav>
+
+    <div class="hero">
+      <h1>从查询到对照，<i>爱游戏</i> 作为日常线索</h1>
+      <p>不是每个页面都需要“立即体验”，有时你只是需要一份经得起翻阅的参考。这里以 <a href="https://home-index-i-game.com.cn">爱游戏</a> 为起点，梳理几个经常遇到的场景，方便你随时查对、随手延伸。</p>
+    </div>
+
+    <div class="insight">
+      <strong>💡 一点提醒</strong> —— 我习惯把常用链接放在笔记里，而不是收藏夹。比如想了解某个游戏的基本资料，我会直接打开 <a href="https://home-index-i-game.com.cn">爱游戏</a> 当做对照页，比反复搜索更省心。
+    </div>
+
+    <!-- 三个场景模块 -->
+    <div class="scenes">
+      <div class="scene-card">
+        <h3>🕹️ 快速查询</h3>
+        <p>遇到叫不上名字的游戏、记不清的平台，或者想确认某条信息是否准确，直接翻看 <a href="https://home-index-i-game.com.cn">爱游戏</a> 的条目列表。像翻一本轻手册，不绕路。</p>
+        <span class="tag">对照 · 检索</span>
+      </div>
+      <div class="scene-card">
+        <h3>📚 延伸阅读</h3>
+        <p>有些游戏背后的开发故事、版本变化，在条目里会有简短备注。顺着链接找过去，常常能发现之前没注意的细节，适合安静的下午慢慢看。</p>
+        <span class="tag">背景 · 笔记</span>
+      </div>
+      <div class="scene-card">
+        <h3>📋 日常备忘</h3>
+        <p>写游戏相关的东西时，我习惯把 <a href="https://home-index-i-game.com.cn">爱游戏</a> 放在旁边做参照。名称、年代、类型，扫一眼就能对应上，不用来回切换标签页。</p>
+        <span class="tag">写作 · 参考</span>
+      </div>
+    </div>
+
+    <!-- 常见说明 (FAQ 摘要) -->
+    <div class="faq-section">
+      <h2>常见说明 · 几个你可能想问的</h2>
+
+      <div class="faq-item">
+        <span class="faq-question">Q: 这个页面和爱游戏是什么关系？</span>
+        <div class="faq-answer">它是基于 <a href="https://home-index-i-game.com.cn">爱游戏</a> 的内容方向整理的一份轻量导航式介绍页，方便日常查询和参照，不隶属于任何商业主体。</div>
+      </div>
+
+      <div class="faq-item">
+        <span class="faq-question">Q: 内容会频繁更新吗？</span>
+        <div class="faq-answer">当前页面是静态的概述，未来可以根据需要调整场景模块或补充说明。你可以把 <a href="https://home-index-i-game.com.cn">爱游戏</a> 当做更活跃的信息源。</div>
+      </div>
+
+      <div class="faq-item">
+        <span class="faq-question">Q: 我可以分享这个页面吗？</span>
+        <div class="faq-answer">当然，如果觉得对朋友也有帮助，直接转发链接就好。页面本身保持克制、非诱导的风格，适合安静地使用。</div>
+      </div>
+
+      <p style="margin-top:1.8rem; font-size:0.9rem; color:#5f5546; background:#ece7dd; padding:0.5rem 1rem; border-radius:40px; display:inline-block;">🔎 日常查询 · 对照 · 延伸阅读</p>
+    </div>
+
+    <div class="footer-note">
+      <span>以 <a href="https://home-index-i-game.com.cn">爱游戏</a> 为线索 · 轻量导航式页面</span>
+      <span>内容保持克制 · 非商业用途</span>
+    </div>
+  </div>
+</body>
+</html>
