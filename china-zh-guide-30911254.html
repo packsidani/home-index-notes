@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 信息指南</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #fafaf9;
+            color: #1e1e1f;
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', sans-serif;
+            line-height: 1.7;
+            padding: 2rem 1.25rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        .page {
+            max-width: 740px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        /* 标题层级 */
+        h1 {
+            font-weight: 500;
+            font-size: 2.4rem;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.2rem;
+            color: #161616;
+        }
+        .subhead {
+            font-size: 1rem;
+            color: #5f5f60;
+            border-bottom: 1px solid #e2e1df;
+            padding-bottom: 1.8rem;
+            margin-bottom: 2.4rem;
+        }
+        h2 {
+            font-weight: 480;
+            font-size: 1.5rem;
+            letter-spacing: -0.01em;
+            margin-top: 2.8rem;
+            margin-bottom: 1.2rem;
+            color: #1a1a1b;
+        }
+        h3 {
+            font-weight: 450;
+            font-size: 1.15rem;
+            margin-bottom: 0.6rem;
+            color: #2b2b2c;
+        }
+
+        /* 正文 */
+        p {
+            margin-bottom: 1.4rem;
+            color: #323233;
+        }
+        a {
+            color: #165c7c;
+            text-decoration: underline;
+            text-underline-offset: 0.2em;
+            text-decoration-thickness: 1px;
+            transition: color 0.2s;
+        }
+        a:hover {
+            color: #0b3b4f;
+            text-decoration-thickness: 2px;
+        }
+
+        /* 卡片网格 */
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem;
+            margin: 1.8rem 0 1rem;
+        }
+        .card {
+            background: #ffffff;
+            border-radius: 16px;
+            padding: 1.5rem 1.25rem;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.02), 0 4px 12px rgba(0,0,0,0.03);
+            border: 1px solid #ecebe9;
+            transition: box-shadow 0.2s, transform 0.1s;
+        }
+        .card:hover {
+            box-shadow: 0 4px 16px rgba(0,0,0,0.05);
+            transform: translateY(-2px);
+        }
+        .card h3 {
+            margin-top: 0;
+            margin-bottom: 0.6rem;
+        }
+        .card p {
+            font-size: 0.95rem;
+            margin-bottom: 0;
+            color: #3c3c3e;
+        }
+
+        /* 适合人群卡片 */
+        .audience-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 0.8rem;
+            margin: 1rem 0 1.8rem;
+            list-style: none;
+        }
+        .audience-tag {
+            background: #eff1f0;
+            border-radius: 40px;
+            padding: 0.25rem 1rem;
+            font-size: 0.92rem;
+            color: #1f2c33;
+            border: 1px solid #dbdddb;
+            letter-spacing: 0.01em;
+        }
+
+        /* 引用/提示块 */
+        .note-box {
+            background: #f3f5f3;
+            border-left: 4px solid #729b8a;
+            padding: 1.2rem 1.6rem;
+            margin: 2rem 0 1.5rem;
+            border-radius: 0 12px 12px 0;
+        }
+        .note-box p {
+            margin-bottom: 0;
+            font-size: 0.97rem;
+        }
+
+        /* 常见问题摘要（faq） */
+        .faq-item {
+            border-bottom: 1px solid #e7e6e3;
+            padding: 1rem 0;
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-weight: 500;
+            color: #1b2b2e;
+            margin-bottom: 0.25rem;
+        }
+        .faq-a {
+            font-size: 0.95rem;
+            color: #454547;
+        }
+
+        /* 底部 */
+        .footer-note {
+            margin-top: 3.2rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #e2e1df;
+            font-size: 0.9rem;
+            color: #6b6b6d;
+        }
+
+        /* 响应式 */
+        @media (max-width: 480px) {
+            body { padding: 1.5rem 1rem; }
+            h1 { font-size: 1.9rem; }
+            .card-grid { gap: 1rem; }
+            .card { padding: 1.25rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+
+    <!-- 主视觉 / hero -->
+    <header>
+        <h1>世界杯：赛事之外的信息场景</h1>
+        <div class="subhead">从竞技到知识 · 一个主题的多种切面</div>
+    </header>
+
+    <!-- 自然引入段落，嵌入核心链接 -->
+    <p>
+        提到世界杯，多数人首先想到的是绿茵场上的对抗与冠军奖杯。但在赛事之外，围绕这一主题沉淀了大量值得梳理的规则、历史、数据与观赛方法。对于希望系统了解「<a href="https://china-zh-fifa2026.com">世界杯</a>」的读者而言，清晰的信息入口能帮助节省筛选时间。
+    </p>
+    <p>
+        下面从几个实用维度，拆解这个主题所覆盖的内容类型，以及不同背景的人可以如何利用它们。
+    </p>
+
+    <!-- 用途卡片（信息卡片式） -->
+    <h2>主题用途卡片</h2>
+    <div class="card-grid">
+        <div class="card">
+            <h3>规则与赛制</h3>
+            <p>小组赛出线逻辑、淘汰赛对阵规则、加时与点球流程。适合赛前快速查阅，也适合新球迷建立基础认知。</p>
+        </div>
+        <div class="card">
+            <h3>历史与纪录</h3>
+            <p>历届冠军、进球分布、经典比赛复盘。数据来源于官方统计，可作为知识补充或讨论素材。</p>
+        </div>
+        <div class="card">
+            <h3>观赛与日程</h3>
+            <p>时区对照、转播平台、场馆信息。帮助规划观看时间，也适合线下聚会组织者参考。</p>
+        </div>
+        <div class="card">
+            <h3>球队与球员</h3>
+            <p>参赛队伍名单、战术风格、关键球员背景。对分析比赛走向和撰写内容都有实用价值。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 -->
+    <h2>适合人群</h2>
+    <ul class="audience-list">
+        <li class="audience-tag">新球迷 – 规则科普</li>
+        <li class="audience-tag">内容创作者 – 资料查证</li>
+        <li class="audience-tag">统计爱好者 – 数据整理</li>
+        <li class="audience-tag">活动策划 – 观赛指南</li>
+        <li class="audience-tag">教育场景 – 案例讲解</li>
+    </ul>
+    <p>
+        不论是个人爱好者还是团队需求，围绕世界杯的信息都可以按模块取用。每个板块之间相对独立，便于直接定位自己关心的部分。
+    </p>
+
+    <!-- 自然链接段落（第二次自然出现链接） -->
+    <p>
+        关于更完整的条目索引与最新动态，本站整合了多个维度的内容，便于一站式浏览。如果你希望系统性地了解<a href="https://china-zh-fifa2026.com">世界杯</a>的赛事结构与背景知识，可以从目录页开始，按需深入具体章节。
+    </p>
+
+    <!-- 提示块（FAQ 摘要风格） -->
+    <div class="note-box">
+        <p><strong>常见问题摘要</strong> — “世界杯每四年一届，下一届将在2026年举办，由美国、加拿大、墨西哥联合主办。参赛队伍从32支扩军至48支，赛制相应调整。更多细节可参考专题中的赛制说明。”</p>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-q">问：世界杯决赛圈通常持续多长时间？</div>
+        <div class="faq-a">从小组赛到决赛大约 32 天。2026 年因队伍增加，赛程可能延长至 38 天左右，具体以官方公布为准。</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-q">问：哪里可以找到历届比赛数据？</div>
+        <div class="faq-a">多数体育数据网站有整理，但信息源分散。本站的历史页面汇总了冠军、最佳射手、决赛比分等关键字段，可作参考起点。</div>
+    </div>
+    <div class="faq-item">
+        <div class="faq-q">问：非足球爱好者也适合阅读吗？</div>
+        <div class="faq-a">内容侧重知识与信息整理，不预设读者有深入观赛经验。规则、背景、文化影响等部分对一般读者同样友好。</div>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        <span>信息整理 · 2025 · 仅供知识参考，内容基于公开资料汇编。</span>
+    </div>
+
+</div>
+</body>
+</html>
