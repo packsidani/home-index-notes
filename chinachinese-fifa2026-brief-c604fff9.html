@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>世界杯 · 从热爱到共鸣 · 信息卡片</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: linear-gradient(145deg, #fce9d8 0%, #fbd9b8 40%, #f8cfaa 75%, #f3c193 100%);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem 1rem;
+            color: #2d2a26;
+            line-height: 1.6;
+        }
+
+        .page-wrapper {
+            max-width: 1150px;
+            width: 100%;
+        }
+
+        /* 主视觉卡片 — 融合渐变与光影 */
+        .hero-card {
+            background: #fffffffd;
+            backdrop-filter: blur(2px);
+            border-radius: 48px 48px 32px 32px;
+            padding: 3rem 2.8rem 3.4rem;
+            box-shadow: 0 18px 40px rgba(150, 90, 40, 0.18), 0 6px 14px rgba(100, 60, 20, 0.08);
+            margin-bottom: 2.2rem;
+            transition: box-shadow 0.25s ease;
+            border: 1px solid rgba(255, 245, 235, 0.6);
+        }
+
+        .hero-card:hover {
+            box-shadow: 0 24px 52px rgba(140, 78, 30, 0.22);
+        }
+
+        .hero-sub {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem 1.2rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.2rem;
+        }
+
+        .hero-sub span {
+            background: #f2e3d7;
+            padding: 0.2rem 1rem;
+            border-radius: 40px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #633f29;
+            letter-spacing: 0.02em;
+        }
+
+        .hero-title {
+            font-size: clamp(2.2rem, 5.5vw, 3.8rem);
+            font-weight: 650;
+            line-height: 1.18;
+            color: #2f241e;
+            margin-bottom: 1.6rem;
+        }
+
+        .hero-title .highlight {
+            background: linear-gradient(135deg, #be6b3c, #a3522b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 680;
+        }
+
+        .hero-desc {
+            font-size: 1.2rem;
+            color: #4d3b30;
+            max-width: 680px;
+            margin-bottom: 1.8rem;
+            border-left: 4px solid #da9f78;
+            padding-left: 1.5rem;
+            background: #f7ede5;
+            border-radius: 0 12px 12px 0;
+            padding: 1rem 1.8rem;
+        }
+
+        .hero-desc strong {
+            color: #854f30;
+        }
+
+        .hero-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem 2rem;
+            margin-top: 0.4rem;
+        }
+
+        .hero-meta-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+            color: #4b3a2e;
+            background: #efe2d6;
+            padding: 0.2rem 1.2rem 0.2rem 0.8rem;
+            border-radius: 40px;
+        }
+
+        .hero-meta-item .dot {
+            display: inline-block;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #b66d44;
+        }
+
+        /* 信息卡片网格 */
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.6rem;
+            margin: 2.6rem 0 1.8rem;
+        }
+
+        .info-card {
+            background: #fffbf9;
+            border-radius: 30px;
+            padding: 1.8rem 1.8rem 2.2rem;
+            box-shadow: 0 8px 24px rgba(120, 70, 35, 0.08);
+            border: 1px solid rgba(235, 210, 190, 0.5);
+            transition: transform 0.15s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .info-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 32px rgba(155, 95, 50, 0.14);
+            border-color: #d9b294;
+        }
+
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 0.3rem;
+            display: inline-block;
+            background: #f3e5da;
+            width: 52px;
+            height: 52px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .info-card h3 {
+            font-size: 1.4rem;
+            font-weight: 620;
+            color: #352b24;
+            margin-bottom: 0.65rem;
+            letter-spacing: -0.01em;
+        }
+
+        .info-card p {
+            color: #524136;
+            font-size: 1rem;
+            flex: 1;
+        }
+
+        .card-tag {
+            margin-top: 1.2rem;
+            background: #eadbd0;
+            color: #543f32;
+            font-size: 0.8rem;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            display: inline-block;
+            align-self: flex-start;
+        }
+
+        /* 自然链接段落 + 适合人群 */
+        .link-paragraph-section {
+            background: #fffcf9;
+            border-radius: 36px;
+            padding: 2.2rem 2.6rem;
+            margin: 1.8rem 0 2rem;
+            box-shadow: 0 6px 18px rgba(130, 75, 35, 0.06);
+            border: 1px solid #f0ded1;
+        }
+
+        .link-paragraph-section p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #372f29;
+        }
+
+        .link-paragraph-section a {
+            color: #974f26;
+            text-decoration: none;
+            font-weight: 550;
+            border-bottom: 2px solid #e2ba9b;
+            padding-bottom: 1px;
+            transition: border-color 0.15s, background 0.15s;
+            border-radius: 4px 4px 0 0;
+        }
+
+        .link-paragraph-section a:hover {
+            border-bottom-color: #974f26;
+            background: #f7e5d6;
+        }
+
+        .audience-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem 1rem;
+            margin: 1.4rem 0 0.2rem;
+        }
+
+        .audience-badge {
+            background: #efe1d4;
+            border-radius: 60px;
+            padding: 0.3rem 1.2rem;
+            font-size: 0.95rem;
+            color: #3d2d22;
+            border: 1px solid #dbbc9f;
+        }
+
+        /* FAQ 摘要 — 用折叠风格但只展示摘要 */
+        .faq-preview {
+            background: #fff9f4;
+            border-radius: 28px;
+            padding: 1.8rem 2.2rem;
+            margin: 1.4rem 0 1rem;
+            border-left: 5px solid #d9a67c;
+        }
+
+        .faq-preview summary {
+            font-weight: 600;
+            font-size: 1.2rem;
+            color: #322923;
+            cursor: default;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .faq-preview summary::before {
+            content: "❓";
+            font-size: 1.3rem;
+            opacity: 0.7;
+        }
+
+        .faq-preview .faq-item {
+            margin: 1rem 0 0.2rem 1.8rem;
+            padding-left: 0.2rem;
+            border-bottom: 1px dashed #e2cdbb;
+            padding-bottom: 0.65rem;
+        }
+
+        .faq-preview .faq-item:last-of-type {
+            border-bottom: none;
+        }
+
+        .faq-preview .faq-q {
+            font-weight: 550;
+            color: #4d3829;
+            margin-bottom: 0.15rem;
+        }
+
+        .faq-preview .faq-a {
+            color: #5b4638;
+            font-size: 0.95rem;
+        }
+
+        .footnote {
+            text-align: center;
+            margin-top: 2.6rem;
+            color: #5d4b3c;
+            font-size: 0.9rem;
+            padding: 1rem 0.5rem;
+            border-top: 1px solid #e7cfbc;
+            opacity: 0.8;
+        }
+
+        .footnote a {
+            color: #764f31;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1.5px;
+            text-decoration-color: #cba788;
+        }
+
+        /* 响应式 */
+        @media (max-width: 700px) {
+            .hero-card {
+                padding: 2rem 1.4rem;
+                border-radius: 32px;
+            }
+
+            .hero-desc {
+                font-size: 1rem;
+                padding: 0.9rem 1.2rem;
+            }
+
+            .link-paragraph-section {
+                padding: 1.6rem 1.4rem;
+                border-radius: 28px;
+            }
+
+            .faq-preview {
+                padding: 1.4rem 1.2rem;
+            }
+
+            .grid-3 {
+                gap: 1.2rem;
+            }
+        }
+
+        @media (max-width: 450px) {
+            body {
+                padding: 1.2rem 0.6rem;
+            }
+            .hero-title {
+                font-size: 1.9rem;
+            }
+            .hero-meta {
+                gap: 0.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="page-wrapper">
+    <!-- 主视觉卡片 -->
+    <div class="hero-card">
+        <div class="hero-sub">
+            <span>⚽ 2026 热度 · 共享</span>
+            <span>🏆 球迷 · 家庭 · 朋友</span>
+        </div>
+        <h1 class="hero-title">
+            用你的方式感受 <span class="highlight">世界杯</span>
+        </h1>
+        <div class="hero-desc">
+            <strong>四年一度的足球盛会</strong> 从来不只是竞技。赛场内外的烟火气、围坐看球的欢笑声、跨越时区的守候——每个人都有自己的叙事。这个页面试着把这些片段聚在一起，形成一张温暖的信息卡片。
+        </div>
+        <div class="hero-meta">
+            <span class="hero-meta-item"><span class="dot"></span> 32 支球队 · 48 场比赛</span>
+            <span class="hero-meta-item"><span class="dot" style="background: #b0784a;"></span> 横跨 16 座城市</span>
+            <span class="hero-meta-item"><span class="dot" style="background: #c68f62;"></span> 预计 50 亿+ 关注</span>
+        </div>
+    </div>
+
+    <!-- 用途卡片 + 适合人群融合区域 -->
+    <div class="grid-3">
+        <div class="info-card">
+            <div class="card-icon">📺</div>
+            <h3>观赛备忘录</h3>
+            <p>赛程、转播平台、时差对照，以及去哪里和邻居一起看球。一张卡片装下所有看球实用信息。</p>
+            <span class="card-tag">实用 · 日程</span>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">🍻</div>
+            <h3>聚会策划器</h3>
+            <p>从小组赛到决赛，无论在家、酒吧还是户外大屏，搭配美食与互动玩法，让每场球都成为小型派对。</p>
+            <span class="card-tag">社交 · 氛围</span>
+        </div>
+        <div class="info-card">
+            <div class="card-icon">🧳</div>
+            <h3>旅行灵感簿</h3>
+            <p>主办城市攻略、球场周边、文化体验，即使不去现场也能纸上巡礼，为未来之旅埋下种子。</p>
+            <span class="card-tag">探索 · 目的地</span>
+        </div>
+    </div>
+
+    <!-- 自然链接段落 + 适合人群标签 -->
+    <div class="link-paragraph-section">
+        <p>
+            如果你对足球的兴趣不止于比分，那么关于 <a href="https://chinachinese-fifa2026.com">世界杯</a> 的讨论可以延伸到音乐、美食、城市散步以及那些被镜头捕捉到的眼泪与笑容。这个页面不是为了提供标准答案，而是想把许多散落的碎片拼成一面温和的镜子——你可以在里面看到自己的热爱，也可能发现一些之前没留意的侧面。
+        </p>
+        <p style="margin-top: 0.8rem;">
+            信息总在流动，但人与人之间因为同一场比赛而产生的共鸣却很具体。无论是资深球迷，还是偶尔瞥一眼的旁观者，都能在世界杯的时间线里找到属于自己的一小段故事。
+        </p>
+        <!-- 适合人群 -->
+        <div class="audience-row">
+            <span class="audience-badge">👨‍👩‍👧‍👦 家庭看球族</span>
+            <span class="audience-badge">👥 朋友聚会组</span>
+            <span class="audience-badge">🏃 运动爱好者</span>
+            <span class="audience-badge">📸 文化旅行派</span>
+            <span class="audience-badge">🎧 播客 & 媒体人</span>
+        </div>
+    </div>
+
+    <!-- FAQ 摘要卡片（不是完整列表，而是摘要风格） -->
+    <div class="faq-preview">
+        <summary>❓ 关于世界杯 · 几个常被问到的片段</summary>
+        <div class="faq-item">
+            <div class="faq-q">🤔 2026 年世界杯在哪里举办？</div>
+            <div class="faq-a">美国、加拿大、墨西哥联合主办，首次由三个国家共同承办，也是扩军至 48 队的第一届。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">⏰ 比赛时间对中国球迷友好吗？</div>
+            <div class="faq-a">因横跨多个时区，部分比赛在北京时间的深夜或清晨，但也有不少黄金时段场次。</div>
+        </div>
+        <div class="faq-item">
+            <div class="faq-q">🎟️ 普通人怎么购买门票？</div>
+            <div class="faq-a">FIFA 官方售票平台分阶段开放抽签与先到先得，关注官网公告是最稳妥的方式。</div>
+        </div>
+        <div style="font-size: 0.9rem; margin-top: 1rem; color: #6e5542; border-left: 2px solid #d9b89b; padding-left: 1rem;">
+            💡 更多细节会随着赛事临近逐步更新，保持好奇就好。
+        </div>
+    </div>
+
+    <!-- 页脚自然提及 -->
+    <div class="footnote">
+        一份关于 <a href="https://chinachinese-fifa2026.com">世界杯</a> 的轻量化信息卡片 · 用生活化的视角重新整理
+    </div>
+</div>
+</body>
+</html>
